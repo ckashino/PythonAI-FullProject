@@ -2,7 +2,7 @@
 ##      MUST INSTALL MODULES FIRST      ##
 ##########################################
 ##################################################################
-##      TO USE REPLACE PATH = NONE WITH DIRECTORY TO PATHS      ##
+##      TO USE REPLACE PATH = NONE WITH DIRECTORY TO PHOTO      ##
 ##################################################################
 
 
