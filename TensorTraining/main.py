@@ -70,17 +70,7 @@ def toarray(path):
 
 test = np.empty((1, 256, 256, 3))
 
-array = toarray('grape.jpg')
-test[0] = array / 255.0
-
-# plt.imshow(test[0], interpolation='nearest')
-# plt.show()
-
-print(model.predict(test))
-result = np.argmax(model.predict(test))
-print(result)
-
-array = toarray('leafblight.jpg')
+array = toarray('testphoto.jpg') # insert the path to the test photo to try
 test[0] = array / 255.0
 
 # plt.imshow(test[0], interpolation='nearest')
