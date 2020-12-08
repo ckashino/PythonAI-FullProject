@@ -15,3 +15,5 @@ LABELS ARE:
 5: BELL PEPPER
 6: FERN
 7: BASIL
+8: Orange
+9: Spinich
