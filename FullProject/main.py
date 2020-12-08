@@ -2,7 +2,7 @@
 ##      MUST INSTALL MODULES FIRST      ##
 ##########################################
 ##################################################################
-##      TO USE REPLACE PATH = NONE WITH DIRECTORY TO PHOTO      ##
+##      TO USE REPLACE PATH = NONE WITH DIRECTORY TO PATHS      ##
 ##################################################################
 
 
@@ -13,7 +13,7 @@ from PIL import Image, ImageFilter, ImageOps
 
 
 SIZE = (256, 256)
-CHOICE = {0: "grapeset", 1: "potatoset", 2: "tomatoset", 3: "ribbonplantset", 4: "nerveplantset", 5: "bellpepperset", 6: "fernset", 7: "basilset"}
+CHOICE = {0: "grapeset", 1: "potatoset", 2: "tomatoset", 3: "ribbonplantset", 4: "nerveplantset", 5: "bellpepperset", 6: "fernset", 7: "basilset", 8: "orangeset", 9: "spinichset"}
 INPUT = int(input("enter plant type "))
 PATH = None  # need to implement this in the server
 
@@ -23,12 +23,13 @@ def toarray(path):  # defines a function that turns the photo (at location given
     image = Image.open(path)  # opens photo
     image = image.convert('RGB')  # converts to rgb, removes alpha layer from jpgs
     imageres = image.resize((SIZE), Image.ANTIALIAS)  # resizes photo to size given in size variable
-    blurred = imageres.filter(ImageFilter.GaussianBlur(radius=1.4))  # Blurs photo so model is based more on colours
-    array = np.array(blurred)  # makes an array from the blurred, resized value.
+    # blurred = imageres.filter(ImageFilter.GaussianBlur(radius=1.4))  # Blurs photo so model is based more on colours
+    array = np.array(imageres)  # makes an array from the blurred, resized value.
     #  print(array.shape)
     # array = array.flatten()
     # array = array.reshape(1000000,)
     return array
+
 def tomirrored(path):
     image = Image.open(path)  # opens photo
     image = image.convert('RGB')  # converts to rgb, removes alpha layer from jpgs
@@ -96,4 +97,14 @@ if INPUT == 6:
 if INPUT == 7:
     HealthValue = toresultsalt(PATH)
     health = {0: "healthy", 1: "Cercospora Leaf Spot", 2: "Downy Mildew", 3: "Fusarium Wilt"}
+    print(health[HealthValue])
+
+if INPUT == 8:
+    HealthValue = toresultsalt(PATH)
+    health = {0: "healthy", 1: "Citrus Canker", 2: "Citrus Scab", 3: "Greasy Spot", 4: "Melanose"}
+    print(health[HealthValue])
+
+if INPUT == 9:
+    HealthValue = toresultsalt(PATH)
+    health = {0: "healthy", 1: "Anthracnose", 2: "Cladosporium", 3: "Downleaf"}
     print(health[HealthValue])
